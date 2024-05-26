@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Compas Caribe</title>
+	</head>
+
+	<body>
+	<div id="entete">
+		<nav id="menuBar">
+			<ul>
+				<li>ASSIETTES<li>
+				<li>VERRES<li>
+				<li>JEUX<li>
+				<li>CONTACT<li>
+				<li>A PROPOS<li>
+			
+			</ul>
+				
+		</nav>
+	
+			<!--	<nav id="socialBar">
+			<ul>
+				<li><a href="#"><img src="#"></a><li>
+				<li><a href="#"><img src="#"></a><li>
+				<li><a href="#"><img src="#"></a><li>
+
+			</ul>
+		</nav>-->
+		<h1 id="titre">COMPAS CARIBE</h1>
+			<div id="panorama">
+	
+	<main class="carousel-container">
+  <div class="carousel">
+    <div class="item active">
+      <img src="https://bit.ly/34xczKy" alt="Image 1" />
+      <p class="caption">Caption for Image 1</p>
+    </div>
+    <div class="item">
+      <img src="https://bit.ly/3lkp5DW" alt="Image 2" />
+      <p class="caption">Caption for Image 2</p>
+    </div>
+    <div class="item">
+      <img src="https://bit.ly/3iMHuI1" alt="Image 3" />
+      <p class="caption">Caption for Image 3</p>
+    </div>
+  </div>
+  <button class="btn prev">Prev</button>
+  <button class="btn next">Next</button>
+  <div class="dots"></div>
+</main>
+	
+	
+	
+	</div>
+	<div id="centre">
+	</div>
+
+	<!--<div id="objetMenu">
+		<div class="item"><a href="#"><img src="img/assiettes.jpeg"></a></div>
+		<div class="item"><a href="#"><img src="img/verre.jpg"></a></div>
+		<div class="item"><a href="#"><img src="img/jeux.jpg"></a></div>
+	</div>
+	</div>-->
+	
+	<div id="pied">
+	<div id="left"></div>
+	<div id="center"></div>
+	<div id="right"></div>
+	
+	<p>2024, Compas Caribe, tous droits réservés.</p>
+	</div>
+	 
+	 <script>
+	 document.addEventListener("DOMContentLoaded", function () {
+  let carousel = document.querySelector(".carousel");
+  let items = carousel.querySelectorAll(".item");
+  let dotsContainer = document.querySelector(".dots");
+
+  // Insert dots into the DOM
+  items.forEach((_, index) => {
+    let dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dot.dataset.index = index;
+    dotsContainer.appendChild(dot);
+  });
+
+  let dots = document.querySelectorAll(".dot");
+
+  // Function to show a specific item
+  function showItem(index) {
+    items.forEach((item, idx) => {
+      item.classList.remove("active");
+      dots[idx].classList.remove("active");
+      if (idx === index) {
+        item.classList.add("active");
+        dots[idx].classList.add("active");
+      }
+    });
+  }
+
+  // Event listeners for buttons
+  document.querySelector(".prev").addEventListener("click", () => {
+    let index = [...items].findIndex((item) =>
+      item.classList.contains("active")
+    );
+    showItem((index - 1 + items.length) % items.length);
+  });
+
+  document.querySelector(".next").addEventListener("click", () => {
+    let index = [...items].findIndex((item) =>
+      item.classList.contains("active")
+    );
+    showItem((index + 1) % items.length);
+  });
+
+  // Event listeners for dots
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      let index = parseInt(dot.dataset.index);
+      showItem(index);
+    });
+  });
+});
+
+	 
+	 </script>
+	</body>
+
+</html>
